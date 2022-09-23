@@ -1,34 +1,25 @@
 import React, { Component } from "react";
 
 class Product extends Component {
-  state = {
-    id: this.props.product.id,
-    name: this.props.product.name,
-    quantity: this.props.product.quantity,
-  };
-
-  addButtonOnClickHandler = (increment) => {
-    this.setState({ quantity: this.state.quantity + increment });
-  };
 
   render() {
     return (
       <div className="row">
         <div className="col">
           <span className="m-2">{this.props.children}</span>
-          <span>{this.state.name}</span>
+          <span>{this.props.product.name}</span>
         </div>
-        <div className="col">
+        <div className="col text-end">
           <span
             className={`badge bg-${
-              this.state.quantity === 0 ? "warning" : "primary"
+              this.props.product.quantity === 0 ? "warning" : "primary"
             } m-2`}
           >
-            {this.state.quantity}
+            {this.props.product.quantity}
           </span>
           <button
             onClick={() => {
-              this.addButtonOnClickHandler(1);
+              this.props.onIncrement(this.props.product.id);
             }}
             className="btn btn-success btn-sm fas fa-more m-2"
           >
@@ -36,7 +27,7 @@ class Product extends Component {
           </button>
           <span
             onClick={() => {
-              this.props.onDelete(this.state.id);
+              this.props.onDelete(this.props.product.id);
             }}
           >
             <i className="fas fa-trash m-2"></i>

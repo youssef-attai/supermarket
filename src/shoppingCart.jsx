@@ -28,20 +28,44 @@ class ShoppingCart extends Component {
   onProductDeleteHandler = (productId) => {
     this.setState({
       products: this.state.products.filter(
-        (product) => product.id != productId
+        (product) => product.id !== productId
       ),
     });
-  }
+  };
+
+  onProductIncrementHandler = (productId) => {
+    const newProducts = [...this.state.products];
+    newProducts.find((product) => product.id === productId).quantity++;
+    this.setState({
+      products: newProducts,
+    });
+  };
+
+  onResetAllHandler = () => {
+    this.setState({
+      products: this.state.products.map((product) => {
+        product.quantity = 0;
+        return product;
+      }),
+    });
+  };
 
   render() {
     return (
       <>
-        <h1>Shopping Cart</h1>
+        <h1 className="m-2">Shopping Cart</h1>
+        <button
+          className="btn btn-secondary m-2"
+          onClick={this.onResetAllHandler}
+        >
+          Reset all
+        </button>
         {this.state.products.map((product) => (
           <Product
             key={product.id}
             product={product}
             onDelete={this.onProductDeleteHandler}
+            onIncrement={this.onProductIncrementHandler}
           >
             <img width="32px" src={product.image} alt={`${product.name}`} />
           </Product>
