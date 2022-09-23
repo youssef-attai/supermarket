@@ -8,6 +8,16 @@ class Product extends Component {
     ingredients: ["Bread", "Meat", "Cheese", "Tomatoes", "Ketchup"],
   };
 
+  /* 
+  renderIngredients() {
+    if (this.state.ingredients.length === 0)
+      return <h6>Unknown ingredients</h6>;
+    return this.state.ingredients.map((ingredient) => (
+      <li key={ingredient}>{ingredient}</li>
+    ));
+  } 
+  */
+
   render() {
     return (
       <div>
@@ -26,7 +36,10 @@ class Product extends Component {
           {this.state.quantity}
         </span>
         <ul>
-          {this.state.ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)}
+          {this.state.ingredients.length === 0 && <h6>Unknown ingredients</h6>}
+          {this.state.ingredients.map((ingredient) => (
+            <li key={ingredient}>{ingredient}</li>
+          ))}
         </ul>
       </div>
     );
