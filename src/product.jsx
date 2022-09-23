@@ -8,15 +8,9 @@ class Product extends Component {
     ingredients: ["Bread", "Meat", "Cheese", "Tomatoes", "Ketchup"],
   };
 
-  /* 
-  renderIngredients() {
-    if (this.state.ingredients.length === 0)
-      return <h6>Unknown ingredients</h6>;
-    return this.state.ingredients.map((ingredient) => (
-      <li key={ingredient}>{ingredient}</li>
-    ));
-  } 
-  */
+  addButtonOnClickHandler = () => {
+    console.log(this);
+  };
 
   render() {
     return (
@@ -36,9 +30,7 @@ class Product extends Component {
           {this.state.quantity}
         </span>
         <button
-          onClick={() => {
-            console.log("Clicked");
-          }}
+          onClick={this.addButtonOnClickHandler}
           className="btn btn-success"
         >
           +
