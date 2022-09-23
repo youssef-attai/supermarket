@@ -13,6 +13,7 @@ class Product extends Component {
   render() {
     return (
       <div>
+        {this.props.children}
         <span>{this.state.name}</span>
         <span
           className={`badge bg-${
