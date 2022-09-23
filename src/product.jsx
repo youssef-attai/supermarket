@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Product extends Component {
   state = {
     name: "Burger",
-    count: 3,
+    count: 1,
     imageUrl: "https://www.svgrepo.com/show/32704/burger.svg",
   };
 
@@ -17,7 +17,13 @@ class Product extends Component {
           alt="Product image"
         />
         <span>{this.state.name}</span>
-        <span className="badge bg-primary m-2">{this.state.count}</span>
+        <span
+          className={`badge bg-${
+            this.state.count === 0 ? "warning" : "primary"
+          } m-2`}
+        >
+          {this.state.count}
+        </span>
       </div>
     );
   }
