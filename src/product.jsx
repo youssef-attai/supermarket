@@ -2,9 +2,8 @@ import React, { Component } from "react";
 
 class Product extends Component {
   state = {
-    name: "Burger",
-    quantity: 0,
-    imageUrl: "https://www.svgrepo.com/show/32704/burger.svg",
+    name: this.props.product.name,
+    quantity: this.props.product.quantity,
   };
 
   addButtonOnClickHandler = (increment) => {
@@ -14,12 +13,6 @@ class Product extends Component {
   render() {
     return (
       <div>
-        <img
-          className="m-2"
-          src={this.state.imageUrl}
-          width="32px"
-          alt="Product image"
-        />
         <span>{this.state.name}</span>
         <span
           className={`badge bg-${

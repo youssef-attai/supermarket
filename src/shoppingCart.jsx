@@ -1,21 +1,21 @@
 import React, { Component } from "react";
-import Product from './product';
+import Product from "./product";
 
 class ShoppingCart extends Component {
   state = {
     products: [
-      { id: 1, name: "Burger", count: 3 },
-      { id: 2, name: "Fries", count: 2 },
-      { id: 3, name: "Cola", count: 1 },
+      { id: 1, name: "Burger", quantity: 3 },
+      { id: 2, name: "Fries", quantity: 2 },
+      { id: 3, name: "Cola", quantity: 1 },
     ],
   };
   render() {
     return (
       <>
         <h1>Shopping Cart</h1>
-        <Product />
-        <Product />
-        <Product />
+        {this.state.products.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
       </>
     );
   }
