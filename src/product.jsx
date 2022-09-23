@@ -3,13 +3,13 @@ import React, { Component } from "react";
 class Product extends Component {
   state = {
     name: "Burger",
-    quantity: 1,
+    quantity: 0,
     imageUrl: "https://www.svgrepo.com/show/32704/burger.svg",
     ingredients: ["Bread", "Meat", "Cheese", "Tomatoes", "Ketchup"],
   };
 
-  addButtonOnClickHandler = () => {
-    console.log(this);
+  addButtonOnClickHandler = (increment) => {
+    this.setState({ quantity: this.state.quantity + increment });
   };
 
   render() {
@@ -30,7 +30,9 @@ class Product extends Component {
           {this.state.quantity}
         </span>
         <button
-          onClick={this.addButtonOnClickHandler}
+          onClick={() => {
+            this.addButtonOnClickHandler(5);
+          }}
           className="btn btn-success"
         >
           +
