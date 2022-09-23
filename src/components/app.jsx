@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import About from "./about";
 import Contact from "./contact";
 import Home from "./home";
+import ProductDetails from './productDetails';
 
 class App extends Component {
   state = {
@@ -88,6 +89,7 @@ class App extends Component {
         />
         <main className="container">
           <Routes>
+            <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

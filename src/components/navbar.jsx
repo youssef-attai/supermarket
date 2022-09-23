@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
   return (
     <nav className="navbar navbar-dark navbar-expand-lg bg-dark p-3">
       <div className="container-fluid">
-        <a className="navbar-brand ms-3" href="/">
+        <Link className="navbar-brand ms-3" to="/">
           E-Commerce App
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -24,31 +25,29 @@ const NavBar = (props) => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/about">
+              <Link className="nav-link" to="/about">
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/contact">
+              <Link className="nav-link" to="/contact">
                 Contact us
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="btn btn-dark position-relative me-3" href="/cart">
-                <i className="fas fa-shopping-cart"></i>
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  {props.count}
-                </span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
       </div>
+      <Link className="btn btn-dark position-relative me-3" to="/cart">
+        <i className="fas fa-shopping-cart"></i>
+        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {props.count}
+        </span>
+      </Link>
     </nav>
   );
 };
