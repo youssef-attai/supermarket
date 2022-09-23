@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import ShoppingCart from "./shoppingCart";
 import NavBar from "./navbar";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import About from "./about";
 import Contact from "./contact";
 import Home from "./home";
-import ProductDetails from './productDetails';
+import ProductDetails from "./productDetails";
+import NotFound from "./notFound";
 
 class App extends Component {
   state = {
@@ -89,8 +90,12 @@ class App extends Component {
         />
         <main className="container">
           <Routes>
-            <Route path="/products/:id" element={<ProductDetails />} />
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/products/:id"
+              element={<ProductDetails products={this.state.products} />}
+            />
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Navigate replace to="/home" />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route
@@ -107,6 +112,8 @@ class App extends Component {
                 />
               }
             />
+            <Route path="*" element={<NotFound />} />
+
           </Routes>
         </main>
       </>

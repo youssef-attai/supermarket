@@ -1,12 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Product = (props) => {
   return (
     <div className="row">
-      <div className="col">
-        <span className="m-2">{props.children}</span>
-        <span>{props.product.name}</span>
-      </div>
+      <Link to={`/products/${props.product.id}`}>
+        <div className="col">
+          <span className="m-2">{props.children}</span>
+          <span>{props.product.name}</span>
+        </div>
+      </Link>
       <div className="col text-end">
         <span
           className={`badge bg-${
