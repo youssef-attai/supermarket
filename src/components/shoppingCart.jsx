@@ -54,12 +54,6 @@ class ShoppingCart extends Component {
     return (
       <>
         <h1 className="m-2">Shopping Cart</h1>
-        <button
-          className="btn btn-secondary m-2"
-          onClick={this.onResetAllHandler}
-        >
-          Reset all
-        </button>
         {this.state.products.map((product) => (
           <Product
             key={product.id}
@@ -70,6 +64,12 @@ class ShoppingCart extends Component {
             <img width="32px" src={product.image} alt={`${product.name}`} />
           </Product>
         ))}
+        <button
+          className="btn btn-secondary m-2"
+          onClick={this.onResetAllHandler}
+        >
+          Reset all
+        </button>
       </>
     );
   }
