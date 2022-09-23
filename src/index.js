@@ -1,7 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import Product from "./product";
 
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
-ReactDOM.render(<Product />, document.querySelector("#root"));
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<Product />);

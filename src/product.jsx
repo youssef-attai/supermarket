@@ -35,6 +35,14 @@ class Product extends Component {
         >
           {this.state.quantity}
         </span>
+        <button
+          onClick={() => {
+            console.log("Clicked");
+          }}
+          className="btn btn-success"
+        >
+          +
+        </button>
         <ul>
           {this.state.ingredients.length === 0 && <h6>Unknown ingredients</h6>}
           {this.state.ingredients.map((ingredient) => (
