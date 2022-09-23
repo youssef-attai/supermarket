@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import ShoppingCart from "./shoppingCart";
 import NavBar from "./navbar";
+import { Route, Routes } from "react-router-dom";
+import About from "./about";
+import Contact from "./contact";
+import Home from "./home";
 
 class App extends Component {
   state = {
@@ -83,15 +87,25 @@ class App extends Component {
           }
         />
         <main className="container">
-          <ShoppingCart
-            products={this.state.products}
-            onProductDeleteHandler={this.onProductDeleteHandler}
-            onProductIncrementHandler={this.onProductIncrementHandler}
-            onProductDecrementHandler={this.onProductDecrementHandler}
-            onProductResetHandler={this.onProductResetHandler}
-            onAllProductsResetHandler={this.onAllProductsResetHandler}
-            onAllProductsDeleteHandler={this.onAllProductsDeleteHandler}
-          />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/cart"
+              element={
+                <ShoppingCart
+                  products={this.state.products}
+                  onProductDeleteHandler={this.onProductDeleteHandler}
+                  onProductIncrementHandler={this.onProductIncrementHandler}
+                  onProductDecrementHandler={this.onProductDecrementHandler}
+                  onProductResetHandler={this.onProductResetHandler}
+                  onAllProductsResetHandler={this.onAllProductsResetHandler}
+                  onAllProductsDeleteHandler={this.onAllProductsDeleteHandler}
+                />
+              }
+            />
+          </Routes>
         </main>
       </>
     );
