@@ -5,7 +5,6 @@ class Product extends Component {
     name: "Burger",
     quantity: 0,
     imageUrl: "https://www.svgrepo.com/show/32704/burger.svg",
-    ingredients: ["Bread", "Meat", "Cheese", "Tomatoes", "Ketchup"],
   };
 
   addButtonOnClickHandler = (increment) => {
@@ -31,18 +30,12 @@ class Product extends Component {
         </span>
         <button
           onClick={() => {
-            this.addButtonOnClickHandler(5);
+            this.addButtonOnClickHandler(1);
           }}
           className="btn btn-success"
         >
           +
         </button>
-        <ul>
-          {this.state.ingredients.length === 0 && <h6>Unknown ingredients</h6>}
-          {this.state.ingredients.map((ingredient) => (
-            <li key={ingredient}>{ingredient}</li>
-          ))}
-        </ul>
       </div>
     );
   }
