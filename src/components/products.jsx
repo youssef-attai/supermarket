@@ -1,16 +1,11 @@
 import { useSearchParams } from "react-router-dom";
 import BrowseProducts from "./browseProducts";
-import { useEffect } from "react";
 
 const Products = (props) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  useEffect(() => {
-    setSearchParams({
-      food: true,
-      drink: true,
-    });
-  }, []);
+  const [searchParams, setSearchParams] = useSearchParams({
+    food: true,
+    drink: true,
+  });
 
   return (
     <>
