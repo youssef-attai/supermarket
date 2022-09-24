@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../../src/logo.png"
+import Logo from "../../src/logo.png";
 
 class NavBar extends Component {
   render() {
@@ -8,7 +8,7 @@ class NavBar extends Component {
       <nav className="navbar navbar-dark navbar-expand-lg bg-dark p-3">
         <div className="container-fluid">
           <Link className="navbar-brand ms-3" to="/home">
-            <img width="32px" className="me-2" src={Logo}/>
+            <img width="32px" className="me-2" src={Logo} />
             <strong>Supermarket</strong>
           </Link>
           <button
@@ -36,15 +36,18 @@ class NavBar extends Component {
               <NavLink className={this.navLinkActiveClass()} to="/contact">
                 Contact us
               </NavLink>
+              <NavLink className={this.navLinkActiveClass()} to="/login">
+                Login
+              </NavLink>
             </div>
           </div>
         </div>
-        <Link className="btn btn-dark position-relative me-3" to="/cart">
-          <i className="fas fa-shopping-cart"/>
+        <NavLink className="btn btn-dark position-relative me-3" to="/cart">
+          <i className="fas fa-shopping-cart" />
           <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {this.props.count}
           </span>
-        </Link>
+        </NavLink>
       </nav>
     );
   }

@@ -10,6 +10,7 @@ import NotFound from "./notFound";
 import AboutCompany from "./aboutCompany";
 import AboutTeam from "./aboutTeam";
 import Products from "./products";
+import Login from "./login";
 
 class App extends Component {
   state = {
@@ -95,6 +96,7 @@ class App extends Component {
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />}>
               <Route path="team" element={<AboutTeam />} />
               <Route path="company" element={<AboutCompany />} />
