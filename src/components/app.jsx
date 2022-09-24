@@ -90,6 +90,17 @@ class App extends Component {
             this.state.products.filter((product) => product.quantity > 0).length
           }
         />
+        <Routes>
+          <Route
+            path="/contact"
+            element={
+              <p className="alert alert-secondary m-2 text-muted">
+                This page is made for demonstrative purposes only. Please do <strong>NOT </strong>
+                reach out to us or try to contact us.
+              </p>
+            }
+          />
+        </Routes>
         <main className="container">
           <Routes>
             <Route
@@ -97,7 +108,7 @@ class App extends Component {
               element={<ProductDetails products={this.state.products} />}
             />
             <Route path="/home" element={<Home />} />
-            <Route path="/" element={<Navigate to="/home"/>} />
+            <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/about" element={<About />}>
               <Route index element={<p>General about</p>} />
               <Route path="team" element={<AboutTeam />} />
