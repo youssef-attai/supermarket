@@ -1,12 +1,19 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 const ProductDetails = (props) => {
   let { id } = useParams();
-  id = parseInt(id);
-  let product = props.products.find((product) => product.id === id);
+  const navigate = useNavigate();
 
-  let navigate = useNavigate();
+  id = Number(id);
 
+  if (isNaN(id)) {
+    return <Navigate to={-1} />;
+  }
+
+  const product = props.products.find((product) => product.id === id);
+  if (product == null) {
+    return <Navigate to={-1} />;
+  }
   return (
     <>
       <h1 className="m-3">
