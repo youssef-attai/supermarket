@@ -32,7 +32,7 @@ const CartItem = (props) => {
             props.onDelete(props.product.id);
           }}
         >
-          <i className="fas fa-trash text-danger"></i>
+          <i className="fas fa-trash text-danger"/>
         </button>
       </div>
     </div>

@@ -8,7 +8,7 @@ class NavBar extends Component {
       <nav className="navbar navbar-dark navbar-expand-lg bg-dark p-3">
         <div className="container-fluid">
           <Link className="navbar-brand ms-3" to="/home">
-            <img width="32px" className="me-2" src={Logo}></img>
+            <img width="32px" className="me-2" src={Logo}/>
             <strong>Supermarket</strong>
           </Link>
           <button
@@ -40,7 +40,7 @@ class NavBar extends Component {
           </div>
         </div>
         <Link className="btn btn-dark position-relative me-3" to="/cart">
-          <i className="fas fa-shopping-cart"></i>
+          <i className="fas fa-shopping-cart"/>
           <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {this.props.count}
           </span>

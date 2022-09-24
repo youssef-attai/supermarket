@@ -40,6 +40,12 @@ class App extends Component {
     ],
   };
 
+  onProductAdd = (productId) => {
+    this.setState({
+      cart: [...this.state.cart, { productId: productId, quantity: 1 }],
+    });
+  };
+
   onProductIncrementHandler = (productId) => {
     const newCart = [...this.state.cart];
     newCart.find((item) => item.productId === productId).quantity++;
@@ -49,10 +55,10 @@ class App extends Component {
   };
 
   onProductDecrementHandler = (productId) => {
-    const newCart = [...this.state.cart];
+    let newCart = [...this.state.cart];
     const target = newCart.find((item) => item.productId === productId);
     if (target.quantity > 1) target.quantity--;
-    else newCart.pop(target);
+    else newCart = newCart.filter((item) => item.productId !== productId)
     this.setState({
       cart: newCart,
     });
@@ -118,6 +124,7 @@ class App extends Component {
                 path=":id"
                 element={
                   <ProductDetails
+                    onAdd={this.onProductAdd}
                     products={this.state.products}
                     cart={this.state.cart}
                   />

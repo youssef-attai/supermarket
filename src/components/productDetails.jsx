@@ -14,6 +14,27 @@ const ProductDetails = (props) => {
   if (product == null) {
     return <Navigate to={-1} />;
   }
+
+  const renderCartIcon = () => {
+    const item = props.cart.find((prdct) => prdct.productId === id);
+    if (item == null)
+      return (
+        <i
+          style={{ cursor: "pointer" }}
+          className="fas fa-cart-plus p-2 text-danger"
+          onClick={() => {
+            props.onAdd(id)
+          }}
+        />
+      );
+    return (
+      <>
+        <i className="fas fa-shopping-cart p-2"/>
+        {item.quantity}
+      </>
+    );
+  };
+
   return (
     <>
       <h1 className="m-3">
@@ -23,14 +44,11 @@ const ProductDetails = (props) => {
           }}
           className="btn btn-secondary"
         >
-          <i className="fas fa-chevron-left"></i>
+          <i className="fas fa-chevron-left"/>
         </button>
         <img width="64px" src={product.image} alt={`${product.name}`} />
         {product.name}
-        <span className="m-2">
-          <i className="fas fa-shopping-cart p-2"></i>
-          {props.cart.find((prdct)=>prdct.productId === id).quantity}
-        </span>
+        <span className="m-2">{renderCartIcon()}</span>
       </h1>
     </>
   );
