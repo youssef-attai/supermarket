@@ -19,7 +19,7 @@ const ProductDetails = (props) => {
       <h1 className="m-3">
         <button
           onClick={() => {
-            navigate("/cart");
+            navigate(-1);
           }}
           className="btn btn-secondary"
         >

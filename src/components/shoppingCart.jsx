@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "./product";
+import CartItem from "./cartItem";
 
 const ShoppingCart = (props) => {
   return (
@@ -8,7 +8,7 @@ const ShoppingCart = (props) => {
       {props.cart.map((item) => {
         const product = props.products.find((prdct) => prdct.id === item.productId);
         return (
-          <Product
+          <CartItem
             key={product.id}
             product={product}
             quantity={item.quantity}
@@ -17,7 +17,7 @@ const ShoppingCart = (props) => {
             onDecrement={props.onProductDecrementHandler}
           >
             <img width="32px" src={product.image} alt={`${product.name}`} />
-          </Product>
+          </CartItem>
         );
       })}
       <button
