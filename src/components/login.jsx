@@ -54,8 +54,10 @@ class Login extends Component {
     return (
       <>
         <h1 className="m-4 text-center">Login</h1>
-        {this.state.errors.map((err) => (
-          <div className="alert alert-danger">{err}</div>
+        {this.state.errors.map((err, idx) => (
+          <div key={idx} className="alert alert-danger">
+            {err}
+          </div>
         ))}
         <form onSubmit={this.onSubmitHandler} className="d-flex flex-column">
           <div className="mb-3">
