@@ -11,31 +11,20 @@ import AboutCompany from "./aboutCompany";
 import AboutTeam from "./aboutTeam";
 import Products from "./products";
 import Login from "./login";
+import axios from "axios";
 
 class App extends Component {
   state = {
-    products: [
-      {
-        id: 1,
-        name: "Burger",
-        image: "https://img.icons8.com/fluency/344/hamburger.png",
-        type: "food",
-      },
-      {
-        id: 2,
-        name: "Fries",
-        image: "https://img.icons8.com/fluency/344/french-fries.png",
-        type: "food",
-      },
-      {
-        id: 3,
-        name: "Cola",
-        image: "https://img.icons8.com/fluency/344/cola.png",
-        type: "drink",
-      },
-    ],
+    products: [],
     cart: [],
   };
+
+  async componentDidMount() {
+    const  {data}  = await axios.get(
+      "https://maharatech-reactjs-default-rtdb.firebaseio.com/products.json"
+    );
+    this.setState({ products: data });
+  }
 
   onProductAdd = (productId) => {
     this.setState({
@@ -129,9 +118,7 @@ class App extends Component {
               />
               <Route
                 index
-                element={
-                  <Products products={this.state.products} />
-                }
+                element={<Products products={this.state.products} />}
               />
             </Route>
             <Route path="*" element={<NotFound />} />
