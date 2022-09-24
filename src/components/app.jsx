@@ -9,7 +9,7 @@ import ProductDetails from "./productDetails";
 import NotFound from "./notFound";
 import AboutCompany from "./aboutCompany";
 import AboutTeam from "./aboutTeam";
-import BrowseProducts from "./browseProducts";
+import Products from "./products";
 
 class App extends Component {
   state = {
@@ -18,19 +18,19 @@ class App extends Component {
         id: 1,
         name: "Burger",
         image: "https://img.icons8.com/fluency/344/hamburger.png",
-        type: "Food",
+        type: "food",
       },
       {
         id: 2,
         name: "Fries",
         image: "https://img.icons8.com/fluency/344/french-fries.png",
-        type: "Food",
+        type: "food",
       },
       {
         id: 3,
         name: "Cola",
         image: "https://img.icons8.com/fluency/344/cola.png",
-        type: "Drink",
+        type: "drink",
       },
     ],
     cart: [],
@@ -84,8 +84,7 @@ class App extends Component {
             element={
               <p className="alert alert-secondary m-2 text-muted">
                 This page is made for demonstrative purposes only. Please do{" "}
-                <strong>NOT</strong>{" "}
-                reach out to us or try to contact us.
+                <strong>NOT</strong> reach out to us or try to contact us.
               </p>
             }
           />
@@ -128,7 +127,9 @@ class App extends Component {
               />
               <Route
                 index
-                element={<BrowseProducts products={this.state.products} />}
+                element={
+                  <Products products={this.state.products} />
+                }
               />
             </Route>
             <Route path="*" element={<NotFound />} />
