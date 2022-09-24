@@ -33,11 +33,7 @@ class App extends Component {
         type: "Drink",
       },
     ],
-    cart: [
-      { productId: 1, quantity: 1 },
-      { productId: 2, quantity: 1 },
-      { productId: 3, quantity: 1 },
-    ],
+    cart: [],
   };
 
   onProductAdd = (productId) => {
@@ -58,7 +54,7 @@ class App extends Component {
     let newCart = [...this.state.cart];
     const target = newCart.find((item) => item.productId === productId);
     if (target.quantity > 1) target.quantity--;
-    else newCart = newCart.filter((item) => item.productId !== productId)
+    else newCart = newCart.filter((item) => item.productId !== productId);
     this.setState({
       cart: newCart,
     });
@@ -88,7 +84,7 @@ class App extends Component {
             element={
               <p className="alert alert-secondary m-2 text-muted">
                 This page is made for demonstrative purposes only. Please do{" "}
-                <strong>NOT </strong>
+                <strong>NOT</strong>{" "}
                 reach out to us or try to contact us.
               </p>
             }

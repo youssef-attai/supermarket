@@ -6,17 +6,13 @@ class About extends Component {
   render() {
     return (
       <>
-        <h1>About</h1>
+        <h1 className="m-4 text-center">About us</h1>
         <div className="row">
           <div className="col-3">
-            <ul>
-              <li>
-                <Link to="/about/team" replace>Our team</Link>
-              </li>
-              <li>
-                <Link to="/about/company" replace>Our company</Link>
-              </li>
-            </ul>
+            <div className="list-group">
+                <Link className="list-group-item" to="/about/team" replace>Our team</Link>
+                <Link className="list-group-item" to="/about/company" replace>Our company</Link>
+            </div>
           </div>
           <div className="col">
             <Outlet context={{ test: "wow" }} />

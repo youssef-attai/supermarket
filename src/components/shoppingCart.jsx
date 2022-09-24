@@ -4,9 +4,11 @@ import CartItem from "./cartItem";
 const ShoppingCart = (props) => {
   return (
     <>
-      <h1 className="m-2">Shopping Cart</h1>
+      <h1 className="m-4 text-center">Cart</h1>
       {props.cart.map((item) => {
-        const product = props.products.find((prdct) => prdct.id === item.productId);
+        const product = props.products.find(
+          (prdct) => prdct.id === item.productId
+        );
         return (
           <CartItem
             key={product.id}
@@ -20,12 +22,16 @@ const ShoppingCart = (props) => {
           </CartItem>
         );
       })}
-      <button
-        className="btn btn-danger text-light m-2"
-        onClick={props.onAllProductsDeleteHandler}
-      >
-        Delete all
-      </button>
+      {props.cart.length > 0 ? (
+        <button
+          className="btn btn-danger text-light m-2"
+          onClick={props.onAllProductsDeleteHandler}
+        >
+          Delete all
+        </button>
+      ) : (
+        <p className="text-muted m-2 text-center">Your shopping cart is empty</p>
+      )}
     </>
   );
 };

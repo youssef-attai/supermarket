@@ -1,14 +1,9 @@
-import React, { Component } from "react";
-
-class Contact extends Component {
-  state = {};
-  render() {
-    return (
-      <>
-        <h1>Contact us</h1>
-      </>
-    );
-  }
-}
+const Contact = (props) => {
+  return (
+    <>
+      <h1 className="m-4 text-center">Contact us</h1>
+    </>
+  );
+};
 
 export default Contact;

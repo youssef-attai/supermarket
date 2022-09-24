@@ -51,7 +51,7 @@ class NavBar extends Component {
 
   navLinkActiveClass() {
     return ({ isActive }) => {
-      return isActive ? "nav-link active" : "nav-link";
+      return `text-center nav-link ${isActive ? "active" : ""}`;
     };
   }
 }

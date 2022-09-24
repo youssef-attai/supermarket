@@ -37,7 +37,7 @@ const ProductDetails = (props) => {
 
   return (
     <>
-      <h1 className="m-3">
+      <h1 className="m-4">
         <button
           onClick={() => {
             navigate(-1);
