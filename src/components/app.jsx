@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import ShoppingCart from "./shoppingCart";
 import NavBar from "./navbar";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import About from "./about";
 import Contact from "./contact";
 import Home from "./home";
 import ProductDetails from "./productDetails";
 import NotFound from "./notFound";
+import AboutCompany from "./aboutCompany";
+import AboutTeam from "./aboutTeam";
 
 class App extends Component {
   state = {
@@ -95,8 +97,10 @@ class App extends Component {
               element={<ProductDetails products={this.state.products} />}
             />
             <Route path="/home" element={<Home />} />
-            <Route path="/" element={<Navigate replace to="/home" />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About />}>
+              <Route path="team" element={<AboutTeam />} />
+              <Route path="company" element={<AboutCompany />} />
+            </Route>
             <Route path="/contact" element={<Contact />} />
             <Route
               path="/cart"
@@ -113,7 +117,6 @@ class App extends Component {
               }
             />
             <Route path="*" element={<NotFound />} />
-
           </Routes>
         </main>
       </>
