@@ -92,27 +92,26 @@ class App extends Component {
         />
         <Routes>
           <Route
-            path="/contact"
+          path="/contact"
             element={
               <p className="alert alert-secondary m-2 text-muted">
-                This page is made for demonstrative purposes only. Please do <strong>NOT </strong>
+                This page is made for demonstrative purposes only. Please do{" "}
+                <strong>NOT </strong>
                 reach out to us or try to contact us.
               </p>
             }
           />
+          <Route path="*" element={<></>}/>
         </Routes>
+
         <main className="container">
           <Routes>
-            <Route
-              path="/products/:id"
-              element={<ProductDetails products={this.state.products} />}
-            />
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/about" element={<About />}>
-              <Route index element={<p>General about</p>} />
               <Route path="team" element={<AboutTeam />} />
               <Route path="company" element={<AboutCompany />} />
+              <Route index element={<p>General about</p>} />
             </Route>
             <Route path="/contact" element={<Contact />} />
             <Route
@@ -128,6 +127,10 @@ class App extends Component {
                   onAllProductsDeleteHandler={this.onAllProductsDeleteHandler}
                 />
               }
+            />
+            <Route
+              path="/products/:id"
+              element={<ProductDetails products={this.state.products} />}
             />
             <Route path="*" element={<NotFound />} />
           </Routes>
