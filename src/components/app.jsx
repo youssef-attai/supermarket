@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ShoppingCart from "./shoppingCart";
 import NavBar from "./navbar";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import About from "./about";
 import Contact from "./contact";
 import Home from "./home";
@@ -97,7 +97,9 @@ class App extends Component {
               element={<ProductDetails products={this.state.products} />}
             />
             <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Navigate to="/home"/>} />
             <Route path="/about" element={<About />}>
+              <Route index element={<p>General about</p>} />
               <Route path="team" element={<AboutTeam />} />
               <Route path="company" element={<AboutCompany />} />
             </Route>

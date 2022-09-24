@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
-import AboutCompany from "./aboutCompany";
-import AboutTeam from "./aboutTeam";
 
 class About extends Component {
   state = {};
@@ -21,7 +19,7 @@ class About extends Component {
             </ul>
           </div>
           <div className="col">
-            <Outlet />
+            <Outlet context={{ test: "wow" }} />
           </div>
         </div>
       </>
