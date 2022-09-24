@@ -11,10 +11,10 @@ class About extends Component {
           <div className="col-3">
             <ul>
               <li>
-                <Link to="/about/team">Our team</Link>
+                <Link to="/about/team" replace>Our team</Link>
               </li>
               <li>
-                <Link to="/about/company">Our company</Link>
+                <Link to="/about/company" replace>Our company</Link>
               </li>
             </ul>
           </div>
