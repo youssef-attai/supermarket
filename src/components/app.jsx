@@ -9,6 +9,7 @@ import ProductDetails from "./productDetails";
 import NotFound from "./notFound";
 import AboutCompany from "./aboutCompany";
 import AboutTeam from "./aboutTeam";
+import BrowseProducts from "./browseProducts";
 
 class App extends Component {
   state = {
@@ -16,69 +17,56 @@ class App extends Component {
       {
         id: 1,
         name: "Burger",
-        quantity: 0,
         image: "https://img.icons8.com/fluency/344/hamburger.png",
+        type: "Food",
       },
       {
         id: 2,
         name: "Fries",
-        quantity: 0,
         image: "https://img.icons8.com/fluency/344/french-fries.png",
+        type: "Food",
       },
       {
         id: 3,
         name: "Cola",
-        quantity: 0,
         image: "https://img.icons8.com/fluency/344/cola.png",
+        type: "Drink",
       },
+    ],
+    cart: [
+      { productId: 1, quantity: 1 },
+      { productId: 2, quantity: 1 },
+      { productId: 3, quantity: 1 },
     ],
   };
 
-  onProductDeleteHandler = (productId) => {
-    this.setState({
-      products: this.state.products.filter(
-        (product) => product.id !== productId
-      ),
-    });
-  };
-
   onProductIncrementHandler = (productId) => {
-    const newProducts = [...this.state.products];
-    newProducts.find((product) => product.id === productId).quantity++;
+    const newCart = [...this.state.cart];
+    newCart.find((item) => item.productId === productId).quantity++;
     this.setState({
-      products: newProducts,
+      cart: newCart,
     });
   };
 
   onProductDecrementHandler = (productId) => {
-    const newProducts = [...this.state.products];
-    const target = newProducts.find((product) => product.id === productId);
-    if (target.quantity > 0) target.quantity--;
+    const newCart = [...this.state.cart];
+    const target = newCart.find((item) => item.productId === productId);
+    if (target.quantity > 1) target.quantity--;
+    else newCart.pop(target);
     this.setState({
-      products: newProducts,
+      cart: newCart,
     });
   };
 
-  onProductResetHandler = (productId) => {
-    const newProducts = [...this.state.products];
-    newProducts.find((product) => product.id === productId).quantity = 0;
+  onProductDeleteHandler = (productId) => {
     this.setState({
-      products: newProducts,
-    });
-  };
-
-  onAllProductsResetHandler = () => {
-    this.setState({
-      products: this.state.products.map((product) => {
-        product.quantity = 0;
-        return product;
-      }),
+      cart: this.state.cart.filter((item) => item.productId !== productId),
     });
   };
 
   onAllProductsDeleteHandler = () => {
     this.setState({
-      products: [],
+      cart: [],
     });
   };
 
@@ -86,13 +74,11 @@ class App extends Component {
     return (
       <>
         <NavBar
-          count={
-            this.state.products.filter((product) => product.quantity > 0).length
-          }
+          count={this.state.cart.filter((item) => item.quantity > 0).length}
         />
         <Routes>
           <Route
-          path="/contact"
+            path="/contact"
             element={
               <p className="alert alert-secondary m-2 text-muted">
                 This page is made for demonstrative purposes only. Please do{" "}
@@ -101,7 +87,7 @@ class App extends Component {
               </p>
             }
           />
-          <Route path="*" element={<></>}/>
+          <Route path="*" element={<></>} />
         </Routes>
 
         <main className="container">
@@ -119,19 +105,29 @@ class App extends Component {
               element={
                 <ShoppingCart
                   products={this.state.products}
+                  cart={this.state.cart}
                   onProductDeleteHandler={this.onProductDeleteHandler}
                   onProductIncrementHandler={this.onProductIncrementHandler}
                   onProductDecrementHandler={this.onProductDecrementHandler}
-                  onProductResetHandler={this.onProductResetHandler}
-                  onAllProductsResetHandler={this.onAllProductsResetHandler}
                   onAllProductsDeleteHandler={this.onAllProductsDeleteHandler}
                 />
               }
             />
-            <Route
-              path="/products/:id"
-              element={<ProductDetails products={this.state.products} />}
-            />
+            <Route path="/products">
+              <Route
+                path=":id"
+                element={
+                  <ProductDetails
+                    products={this.state.products}
+                    cart={this.state.cart}
+                  />
+                }
+              />
+              <Route
+                index
+                element={<BrowseProducts products={this.state.products} />}
+              />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

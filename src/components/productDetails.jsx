@@ -27,12 +27,9 @@ const ProductDetails = (props) => {
         </button>
         <img width="64px" src={product.image} alt={`${product.name}`} />
         {product.name}
-        <span
-          className={`badge bg-${
-            product.quantity === 0 ? "warning text-dark" : "primary text-light"
-          } m-2`}
-        >
-          {product.quantity}
+        <span className="m-2">
+          <i className="fas fa-shopping-cart p-2"></i>
+          {props.cart.find((prdct)=>prdct.productId === id).quantity}
         </span>
       </h1>
     </>
