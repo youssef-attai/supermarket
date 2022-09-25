@@ -23,7 +23,7 @@ const Products = (props) => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                checked={searchParams.get("food") == "true"}
+                checked={searchParams.get("food") === "true"}
                 onChange={(e) =>
                   setSearchParams({
                     food: e.target.checked,
@@ -43,7 +43,7 @@ const Products = (props) => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                checked={searchParams.get("drink") == "true"}
+                checked={searchParams.get("drink") === "true"}
                 onChange={(e) =>
                   setSearchParams({
                     food: searchParams.get("food"),
@@ -59,7 +59,7 @@ const Products = (props) => {
           <div className="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
             <BrowseProducts
               products={props.products.filter(
-                (prdct) => searchParams.get(prdct.type) == "true"
+                (prdct) => searchParams.get(prdct.type) === "true"
               )}
             />
           </div>

@@ -8,7 +8,7 @@ class NavBar extends Component {
       <nav className="navbar navbar-dark navbar-expand-lg bg-dark p-3">
         <div className="container-fluid">
           <Link className="navbar-brand ms-3" to="/home">
-            <img width="32px" className="me-2" src={Logo} />
+            <img width="32px" className="me-2" src={Logo} alt={"App logo"}/>
             <strong>Supermarket</strong>
           </Link>
           <button

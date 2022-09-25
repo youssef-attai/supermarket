@@ -20,9 +20,7 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    const  {data}  = await axios.get(
-      "https://maharatech-reactjs-default-rtdb.firebaseio.com/products.json"
-    );
+    const { data } = await axios.get("http://localhost:3001/products");
     this.setState({ products: data });
   }
 
