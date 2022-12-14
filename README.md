@@ -2,6 +2,10 @@
 
 My very first React app
 
+### Try it out 
+
+[![GitHub pages link](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)](https://youssef-attai.github.io/supermarket/)
+
 ## How to run
 
 You will need [Node.js](https://nodejs.org/en/) to run this app locally on your machine.
