@@ -6,24 +6,15 @@ My very first React app
 
 [![GitHub pages link](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)](https://youssef-attai.github.io/supermarket/)
 
-## How to run
+## Setup the products fake REST API
 
-You will need [Node.js](https://nodejs.org/en/) to run this app locally on your machine.
+### Prerequisites
 
-1. Clone the repo:
+- [Node.js](https://nodejs.org/en/)
 
-```
-git clone https://github.com/youssef-attai/supermarket.git
-cd supermarket
-```
+### Steps
 
-2. Install the dependencies:
-
-```
-npm install
-```
-
-3. Go to an empty directory, and create a new Node.js project for the dummy products database:
+1. Go to an empty directory, and create a new Node.js project for the dummy products database:
 
 ```
 mkdir supermarket-db
@@ -31,7 +22,7 @@ cd supermarket-db
 npm init -y
 ```
 
-4. Create a file named `db.json` and paste the following in it:
+2. Create a file named `db.json` and paste the following in it:
 
 ##### db.json
 
@@ -60,21 +51,16 @@ npm init -y
 }
 ```
 
-5. Install [`json-server`](https://www.npmjs.com/package/json-server) globally:
+3. Install [`json-server`](https://www.npmjs.com/package/json-server) globally:
 
 ```
 sudo npm install -g json-server
 ```
 
-6. Start the JSON server on port `3001`
+4. Start the JSON server on port `3001`
 
 ```
 json-server --watch db.json -p 3001
 ```
 
-7. Go back to the React app, and run it:
-
-```
-cd supermarket
-npm start
-```
+5. Go back to the React app on [GitHub pages](https://youssef-attai.github.io/supermarket/) and refresh the [Products page](https://youssef-attai.github.io/supermarket/products)
